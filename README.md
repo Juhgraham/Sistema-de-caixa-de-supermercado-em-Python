@@ -1,68 +1,69 @@
-🛒 Sistema de Gerenciamento de Supermercado
-📌 Descrição do Projeto
+# 🛒 Sistema de Gerenciamento de Supermercado
 
-Este projeto implementa um Sistema de Gerenciamento de Supermercado completo, desenvolvido em Python, utilizando o SQLAlchemy ORM para persistência de dados em um banco de dados SQLite.
+## 📌 Descrição do Projeto
 
-O sistema oferece funcionalidades para gerenciamento de clientes, produtos, fornecedores e vendas, além de um módulo de web scraping para importação inicial de produtos e geração de relatórios gerenciais detalhados.
+Este projeto implementa um **Sistema de Gerenciamento de Supermercado** desenvolvido em **Python**, utilizando **SQLAlchemy ORM** para persistência de dados em um banco **SQLite**.
 
-🚀 Funcionalidades Principais
+O sistema permite o gerenciamento completo de clientes, produtos, fornecedores e vendas, além de contar com importação de dados iniciais e um módulo de **web scraping** para carregamento automático de produtos.
 
-Gerenciamento de Clientes (CRUD)
-Cadastro, consulta, atualização e exclusão de clientes.
+---
 
-Gerenciamento de Produtos (CRUD)
-Cadastro, consulta, atualização e exclusão de produtos, com controle de estoque e associação a fornecedores.
+## 🚀 Funcionalidades Principais
 
-Gerenciamento de Fornecedores (CRUD)
-Cadastro, consulta, atualização e exclusão de fornecedores.
+- **Gerenciamento de Clientes (CRUD)**
+  - Cadastro
+  - Consulta
+  - Atualização
+  - Exclusão
 
-Registro de Vendas
-Processo de atendimento ao cliente, registro de itens comprados, baixa automática de estoque e emissão de nota fiscal.
+- **Gerenciamento de Produtos (CRUD)**
+  - Controle de estoque
+  - Associação com fornecedores
 
-Sistema de Informações Gerenciais (SIG)
-Relatórios sobre:
+- **Gerenciamento de Fornecedores (CRUD)**
 
-Vendas por cliente
+- **Registro de Vendas**
+  - Atendimento ao cliente
+  - Registro de itens comprados
+  - Baixa automática de estoque
+  - Emissão de nota fiscal
 
-Produtos mais/menos vendidos
+- **Sistema de Informações Gerenciais (SIG)**
+  - Vendas por cliente
+  - Produtos mais/menos vendidos
+  - Produtos com baixo estoque
+  - Produtos por fornecedor
 
-Produtos com baixo estoque
+- **Web Scraping**
+  - Importação automática de produtos via página web
 
-Produtos por fornecedor
+- **Importação de Dados Iniciais**
+  - Clientes via arquivo JSON
+  - Fornecedores via planilha Excel
 
-Web Scraping
-Importação inicial de produtos a partir de uma página web externa.
+---
 
-Importação de Dados Iniciais
+## 🛠 Tecnologias Utilizadas
 
-Clientes via arquivo JSON
+- **Python 3.x**
+- **SQLAlchemy** — ORM para interação com banco de dados
+- **SQLite** — Banco de dados leve e embarcado
+- **Pandas** — Manipulação e análise de dados
+- **Requests** — Requisições HTTP
+- **BeautifulSoup4** — Parsing de HTML
+- **Tabulate** — Formatação de tabelas no console
+- **Openpyxl** — Leitura de arquivos Excel
 
-Fornecedores via planilha Excel
+---
 
-🛠 Tecnologias Utilizadas
+## 📂 Estrutura do Projeto
 
-Python 3.x
-
-SQLAlchemy — ORM para interação com o banco de dados
-
-SQLite — Banco de dados leve e embarcado
-
-Pandas — Manipulação e análise de dados
-
-Requests — Requisições HTTP (web scraping)
-
-BeautifulSoup4 — Parsing de HTML
-
-Tabulate — Formatação de tabelas no console
-
-Openpyxl — Leitura de arquivos Excel via Pandas
-
-📂 Estrutura do Projeto
+```bash
 projeto_de_bloco/
 │
 ├── commons/
-│   ├── db.py              # Configuração do banco de dados e sessões
-│   ├── models.py          # Definição dos modelos ORM (tabelas)
+│   ├── db.py              # Configuração do banco de dados
+│   ├── models.py          # Modelos ORM (tabelas)
 │   └── utils.py           # Funções utilitárias
 │
 ├── crud_clientes.py       # CRUD de clientes
@@ -70,75 +71,116 @@ projeto_de_bloco/
 ├── crud_produtos.py       # CRUD de produtos
 ├── crud_vendas.py         # CRUD de vendas
 │
-├── dados/                 # Arquivos de dados iniciais
+├── dados/
 │   ├── clientes.json
 │   ├── fornecedores.xlsx
 │   └── mercado_sqlalchemy.db
 │
-├── sig/                   # Sistema de Informações Gerenciais
+├── sig/
 │   ├── clientes_menu.py
 │   ├── produtos_menu.py
 │   └── sig_menu.py
 │
 ├── main.py                # Ponto de entrada da aplicação
-├── relatorios.py          # Relatórios (fechamento de caixa)
+├── relatorios.py          # Relatórios e fechamento de caixa
 ├── requirements.txt       # Dependências do projeto
 ├── vendas.py              # Lógica de vendas e nota fiscal
-└── web_scraping.py        # Web scraping de produtos
-▶️ Como Executar o Projeto
-✅ Pré-requisitos
+└── web_scraping.py        # Módulo de web scraping
+```
 
-Python 3.x instalado
+---
 
-1️⃣ Clonar o Repositório
+## ▶️ Como Executar o Projeto
+
+### ✅ Pré-requisitos
+
+- Python 3.x instalado
+
+---
+
+### 1️⃣ Clonar o Repositório
+
+```bash
 git clone https://github.com/seu-usuario/seu-repositorio.git
 cd seu-repositorio
-2️⃣ Criar e Ativar um Ambiente Virtual (Recomendado)
+```
 
-Linux / MacOS
+---
 
+### 2️⃣ Criar e Ativar Ambiente Virtual (Recomendado)
+
+**Linux / MacOS**
+```bash
 python3 -m venv venv
 source venv/bin/activate
+```
 
-Windows
-
+**Windows**
+```bash
 python -m venv venv
 .\venv\Scripts\activate
-3️⃣ Instalar as Dependências
+```
+
+---
+
+### 3️⃣ Instalar Dependências
+
+```bash
 pip install -r requirements.txt
-4️⃣ Executar a Aplicação
+```
+
+---
+
+### 4️⃣ Executar a Aplicação
+
+```bash
 python main.py
-🔄 Ao iniciar o sistema
+```
 
-O sistema irá:
+---
 
-Inicializar o banco de dados SQLite (mercado_sqlalchemy.db)
+## 🔄 Inicialização Automática
 
-Carregar clientes do arquivo dados/clientes.json (caso o banco esteja vazio)
+Ao iniciar, o sistema irá:
 
-Carregar fornecedores do arquivo dados/fornecedores.xlsx
+- Criar o banco de dados `mercado_sqlalchemy.db`
+- Importar clientes do arquivo `dados/clientes.json` (caso o banco esteja vazio)
+- Importar fornecedores do arquivo `dados/fornecedores.xlsx`
+- Realizar web scraping da página:
+  
+  https://pedrovncs.github.io/lindosprecos/produtos.html
 
-Realizar web scraping da página:
-https://pedrovncs.github.io/lindosprecos/produtos.html
+- Gerar o arquivo `dados/produtos.csv`
+- Importar os produtos para o banco de dados
 
-Gerar o arquivo dados/produtos.csv
+Após isso, será exibido um **menu interativo no console** para utilização do sistema.
 
-Importar os produtos para o banco de dados
+---
 
-Após isso, será exibido um menu interativo no console para utilização do sistema.
+## 📊 Dados Iniciais
 
-📊 Dados Iniciais
+O projeto inclui:
 
-O projeto inclui arquivos para inicialização automática:
+- `clientes.json` — Lista de clientes
+- `fornecedores.xlsx` — Planilha com duas abas:
+  - `fornecedores`
+  - `produto_fornecedor`
 
-clientes.json — Lista de clientes
+---
 
-fornecedores.xlsx — Planilha com duas abas:
+## 💡 Possíveis Melhorias Futuras
 
-fornecedores
+- Interface gráfica (GUI ou Web)
+- Autenticação de usuários
+- Testes automatizados
+- Deploy em ambiente cloud
+- API REST com FastAPI
 
-produto_fornecedor
+---
 
-👩‍💻 Autor
+## 👩‍💻 Autora
 
-Juliana Pereira Costa
+**Juliana Pereira Costa**  
+Estudante de Engenharia de Software com foco em Dados
+
+---
